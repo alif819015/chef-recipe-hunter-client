@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 
 const LogIn = () => {
     const {login} = useContext(AuthContext);
+    const navigate = useNavigate('')
+    const location = useLocation();
+    console.log(location)
+    const from = location.state?.from?.pathname || '/'
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -23,6 +28,7 @@ const LogIn = () => {
         console.log(loggedUser);
         setSuccess("User Login successfully");
         event.target.reset();
+        navigate(from, {replace: true})
 
     })
     .catch(error =>{
