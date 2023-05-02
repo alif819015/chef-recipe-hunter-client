@@ -5,7 +5,7 @@ import { AuthContext } from "../auth/AuthProvider";
 
 const LogIn = () => {
     const {login} = useContext(AuthContext);
-  const [passwordError, setPasswordError] = useState("");
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   const handleLogin = (event) => {
@@ -15,20 +15,19 @@ const LogIn = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    if (!/(?=.*[A-Z]) /.test(password)) {
-        return;
-    }
- 
-    setPasswordError('')
+    setError('')
     setSuccess('')
     login(email, password)
     .then(result =>{
         const loggedUser = result.user;
         console.log(loggedUser);
+        setSuccess("User Login successfully");
+        event.target.reset();
 
     })
     .catch(error =>{
-        setPasswordError(error.message)
+        setError(error.message)
+        setError('Password Dos not match')
     })
 
   };
@@ -69,7 +68,7 @@ const LogIn = () => {
                 </a>
               </label>
               <p className="text-red-600">
-                <small>{passwordError}</small>
+                <small>{error}</small>
               </p>
               <p className="text-green-600">
                 <small>{success}</small>
