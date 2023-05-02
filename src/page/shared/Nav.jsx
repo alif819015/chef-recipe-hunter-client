@@ -1,13 +1,24 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const Nav = () => {
+const {user, logOut} = useContext(AuthContext);
+
+const handleLogout =()=>{
+  logOut()
+  .then(()=>{})
+  .catch(error=>{
+    console.log(error);
+  })
+}
+
   return (
     <div className="navbarStyle">
   <nav className="bg-secondary text-primary-content flex items-center justify-between flex-wrap p-6">
     <div className="flex items-center flex-shrink-0 mr-6">
-      <p className="btn btn-ghost normal-case text-xl">Website name</p>
+      <p className="btn btn-ghost normal-case text-xl">KitchenQuest</p>
     </div>
     <div className="block lg:hidden">
       <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +29,13 @@ const Nav = () => {
       <div className="text-sm lg:flex-grow">
         <Link to='/' className="btn btn-ghost normal-case text-xl lg:inline-block mr-4">Home</Link>
         <Link to='/blog' className="btn btn-ghost normal-case text-xl lg:inline-block mr-4">Blog</Link>
-        <Link to='/login' className="btn btn-ghost normal-case text-xl lg:inline-block mr-4">Login</Link>
-        <Link to='/register' className="btn btn-ghost normal-case text-xl lg:inline-block mr-4">Register</Link>
+       <>
+        {
+          user?
+          <button onClick={handleLogout} className="btn btn-ghost normal-case text-xl lg:inline-block mr-4">Logout</button>:
+          <Link to='/login' className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"><button>Login</button></Link>
+        }
+       </>
       </div>
     </div>
   </nav>

@@ -4,6 +4,8 @@ import Nav from "../page/shared/Nav";
 import Home from "../home/Home";
 import LogIn from "../home/LogIn";
 import Register from "../home/Register";
+import Recipes from "../page/Recipes";
+import PrivateRoute from "../private/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         {
             path:'/register',
             element: <Register></Register>
+        },
+        {
+            path:'/recipe',
+            element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
         },
 
       ]

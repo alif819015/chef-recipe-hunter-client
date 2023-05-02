@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const [chefData, setChefData] = useState([]);
@@ -24,9 +25,13 @@ const Card = () => {
         </figure>
         <div className="card-body">
           <h2 className="card-title text-black">Name {chef?.name}</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
+          <p>From: {chef.country}</p>
+          <p>Experience: {chef.yearsOfExperience}</p>
+          <p>Recipes: {chef.recipes}</p>
+          <p>Likes: {chef.likes}</p>
+          <p>Rating: {chef.rating}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+            <button className="btn btn-primary"><Link to='/recipe'>View Recipes</Link></button>
           </div>
         </div>
       </div>
