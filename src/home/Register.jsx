@@ -2,9 +2,10 @@
 import React, { useContext, useState } from "react";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser,google,gitHub } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -44,6 +45,28 @@ const Register = () => {
         setError(error.message);
       });
   };
+
+  const handleGoogle =()=>{
+    google()
+    .then((result)=>{
+        const googleUser = result.user;
+        console.log(googleUser);
+    })
+    .catch(error=>{
+        setError(error.message);
+    })
+  }
+
+  const handleGitHub = ()=>{
+    gitHub()
+    .then( result =>{
+        const gitUser = result.user;
+        console.log(gitUser);
+    })
+    .catch(error=>{
+        setError(error.message);
+    })
+  }
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
@@ -117,6 +140,8 @@ const Register = () => {
               </span>
             </a>
           </Form>
+          <button onClick={handleGoogle} className="btn btn-ghost mb-1"><p className="flex align-middle"><span className="text-xl mr-2 text-purple-600"><FaGoogle/></span><span className="mt-1">Login with Google</span></p></button>
+            <button onClick={handleGitHub} className="btn btn-ghost mb-5"><p className="flex align-middle"><span className="text-xl mr-2 text-purple-600"><FaGithub/></span><span className="mt-1">Login with GitHub</span></p></button>
         </div>
       </div>
     </div>
