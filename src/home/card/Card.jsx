@@ -27,10 +27,10 @@ const Card = () => {
           <h2 className="card-title text-black">Name {chef?.name}</h2>
           <p>From: {chef.country}</p>
           <p>Experience: {chef.yearsOfExperience}</p>
-          <p>Recipes: {chef.recipes}</p>
+          <p>Recipes: {chef.numbersOf_recipes}</p>
           <p>Likes: {chef.likes}</p>
           <p>Rating: {chef.rating}</p>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-center">
             <button className="btn btn-primary"><Link to={`/chef/${chef.id}`}>View Recipes</Link></button>
           </div>
         </div>
