@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -12,7 +14,7 @@ const Nav = () => {
         console.error(error.message);
       });
   };
-
+console.log(user)
   return (
     <div className="navbarStyle">
       <nav className="bg-secondary text-primary-content flex items-center justify-between flex-wrap p-6">
@@ -78,7 +80,7 @@ const Nav = () => {
             {user && (
               <div className="avatar online">
                 <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} />
+                  <img title={user?.displayName} src={user?.photoURL} />
                 </div>
               </div>
             )}

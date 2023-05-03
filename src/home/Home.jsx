@@ -28,7 +28,6 @@ const Home = () => {
             <p className="mb-5">
                 <Card></Card>
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>

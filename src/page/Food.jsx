@@ -1,53 +1,46 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 
 const Food = (chefData) => {
-    const [rating, setRating] = useState(0)
   const food = chefData.chefData;
   console.log(food?.all_recipes);
   return (
     <div className="mx-auto my-5">
-      <div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src={food?.recipeimg1} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              {food?.all_recipes?.}
-              <div className="badge badge-secondary">Chinese Food</div>
-            </h2>
-                <div>
-                    {
-                        food?.all_recipes?.map(r=> (
-                            <div key={r.id}>{
-                                <>
-                                <p className="font-bold">{r.name}</p>
-                                <p><small>{r.ingredients}</small></p>
-                                </>
-                                
-                            }</div>
-                        ))
-                    }
-                </div>
-            <p>
-              <span className="font-bold">CookingMethod:</span> Name:{" "}
-              {food?.cookingMethod}
-              
-            </p>
+      
 
-            <div className="flex">
-            <Rating style={{ maxWidth: 100 }} value={Math.round(food?.rating || 0)} readOnly/>
-            <p className="ms-3">{food?.rating}</p>
+      {
+        food?.all_recipes?.map(p=> (
+            <div>
+            <div className="card w-96 bg-base-100 shadow-xl mb-5">
+              
+              <div className="card-body">
+                <h2 className="card-title">
+                  <div className="badge badge-secondary">Chinese Food</div>
+                </h2> 
+                <figure>
+                <img src={p?.recipeimg} alt="Shoes" />
+              </figure>
+                  <h3><span className="font-bold">Name of recipe: </span> {p?.name}</h3>
+                  <h3><span className="font-bold">ingredients: </span> {p?.ingredients}</h3>
+                <p>
+                  <span className="font-bold">CookingMethod:</span>{food?.cookingMethod}
+                </p>
+    
+                <div className="flex">
+                <Rating style={{ maxWidth: 100 }} value={Math.round(food?.rating || 0)} readOnly/>
+                <p className="ms-3">{food?.rating}</p>
+                </div>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Favorite</button>
+                </div>
+              </div>
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Favorite</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </div> 
+        )
+        )
+      }
     </div>
   );
 };
