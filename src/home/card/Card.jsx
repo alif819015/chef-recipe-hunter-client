@@ -10,7 +10,7 @@ const Card = () => {
       .then((res) => res.json())
       .then((data) => setChefData(data));
   }, []);
-  console.log(chefData);
+//   console.log(chefData);
   
   return (
     <div className="flex flex-wrap">

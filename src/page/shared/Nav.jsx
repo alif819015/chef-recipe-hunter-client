@@ -9,7 +9,7 @@ const Nav = () => {
     logOut()
       .then(() => {})
       .catch((error) => {
-        console.log(error);
+        console.error(error.message);
       });
   };
 
@@ -60,12 +60,20 @@ const Nav = () => {
                 Logout
               </button>
             ) : (
+             <>
               <Link
                 to="/login"
                 className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"
               >
                 <button>Login</button>
               </Link>
+              <Link
+                to="/register"
+                className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"
+              >
+                <button>Register</button>
+              </Link>
+             </>
             )}
             {user && (
               <div className="avatar online">
