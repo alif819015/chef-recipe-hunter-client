@@ -6,7 +6,24 @@ import Food from "./Food";
 
 const Recipes = () => {
   const [chefData, setChefData] = useState({});
+  const [data, setData] = useState(null);
   const { id } = useParams();
+
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(`http://localhost:5000/chef/${id}`);
+//         const data = await response.json();
+//         setData(data);
+//         // setLoading(false);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//     fetchData();
+//   }, [id]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/chef/${id}`)

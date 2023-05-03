@@ -3,13 +3,17 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../auth/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import { ImSpinner } from "react-icons/im";
 
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
     const location = useLocation();
     
     if(loading){
-        return <p>Loading....</p>
+        return <section className="flex items-center justify-center h-screen">
+        <ImSpinner className="h-20 w-40 mx-auto text-purple-700 animate-spin"></ImSpinner>
+
+  </section>
     }
 
     if(user){

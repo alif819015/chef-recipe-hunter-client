@@ -2,10 +2,16 @@
 import React, { useContext} from "react";
 import { AuthContext } from "../auth/AuthProvider";
 import Card from "./card/Card";
-// import img from '../assets/vegetables-set-left-black-slate.png';
+import { ImSpinner } from "react-icons/im";
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
+  const { user ,loading} = useContext(AuthContext);
+  if(loading){
+    return   <section className="flex items-center justify-center h-screen">
+        <ImSpinner className="h-20 w-40 mx-auto text-purple-700 animate-spin"></ImSpinner>
+
+  </section>
+}
   return (
     <div>
       <div
@@ -18,6 +24,7 @@ const Home = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-4xl">
             <h1 className="mb-5 text-5xl font-bold">Chef</h1>
+            
             <p className="mb-5">
                 <Card></Card>
             </p>

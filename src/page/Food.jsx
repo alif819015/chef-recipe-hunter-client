@@ -6,7 +6,7 @@ import '@smastrom/react-rating/style.css';
 const Food = (chefData) => {
     const [rating, setRating] = useState(0)
   const food = chefData.chefData;
-  console.log(food);
+  console.log(food?.all_recipes);
   return (
     <div className="mx-auto my-5">
       <div>
@@ -16,13 +16,26 @@ const Food = (chefData) => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">
-              {food?.all_recipes?.name}
+              {food?.all_recipes?.}
               <div className="badge badge-secondary">Chinese Food</div>
             </h2>
-
+                <div>
+                    {
+                        food?.all_recipes?.map(r=> (
+                            <div key={r.id}>{
+                                <>
+                                <p className="font-bold">{r.name}</p>
+                                <p><small>{r.ingredients}</small></p>
+                                </>
+                                
+                            }</div>
+                        ))
+                    }
+                </div>
             <p>
               <span className="font-bold">CookingMethod:</span> Name:{" "}
               {food?.cookingMethod}
+              
             </p>
 
             <div className="flex">
