@@ -33,33 +33,26 @@ const Nav = () => {
           </button>
         </div>
         <div
-          className="w-full block flex-grow lg:flex lg:items-center lg:mt-4 lg:w-auto"
+          className="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
           id="navbarNav"
         >
           <div className="text-sm lg:flex-grow">
             <Link
               to="/"
-              className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"
+              className="btn btn-ghost normal-case text-xl mr-4"
             >
               Home
             </Link>
             <Link
-              to="/blog"
+              to="/blogs"
               className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"
             >
               Blog
             </Link>
 
-            {user && (
-              <div className="avatar online">
-                <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} />
-                  <p>{user?.email}</p>
-                </div>
-              </div>
-            )}
-
-            {user ? (
+          </div>
+           <>
+           {user ? (
               <button
                 onClick={handleLogout}
                 className="btn btn-ghost normal-case text-xl lg:inline-block mr-4"
@@ -74,7 +67,14 @@ const Nav = () => {
                 <button>Login</button>
               </Link>
             )}
-          </div>
+            {user && (
+              <div className="avatar online">
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+            )}
+           </>
         </div>
       </nav>
     </div>

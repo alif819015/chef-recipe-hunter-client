@@ -31,7 +31,7 @@ const Card = () => {
           <p>Likes: {chef.likes}</p>
           <p>Rating: {chef.rating}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary"><Link to='/recipe'>View Recipes</Link></button>
+            <button className="btn btn-primary"><Link to={`/chef/${chef.id}`}>View Recipes</Link></button>
           </div>
         </div>
       </div>
