@@ -25,7 +25,7 @@ const Home = () => {
           backgroundImage: `url("https://wallpaperaccess.com/full/1400914.jpg")`,
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay bg-opacity-20"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-4xl">
             <div className="carousel rounded-3xl h-96 w-full">
@@ -74,8 +74,10 @@ const Home = () => {
                 </div>
               </div>
             </div>
-<hr className="mt-4" />
-            <h1 className="mb-5 text-5xl font-bold font-serif mt-4 text-gray-50">Chef</h1>
+            <hr className="mt-4" />
+            <h1 className="mb-5 text-5xl font-bold font-serif mt-6 text-gray-50">
+               Chinese Chef
+            </h1>
 
             <p className="mb-5">
               <Card></Card>

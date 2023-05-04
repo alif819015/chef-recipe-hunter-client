@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import '@smastrom/react-rating/style.css';
 import 'react-toastify/dist/ReactToastify.css';
-import Tost from './Tost';
+import SingleCard from './SingleCard';
 
 
 const Food = ({chefData}) => {
@@ -12,7 +12,7 @@ const Food = ({chefData}) => {
     <div className="mx-auto my-5">
     
       {
-        chefData?.all_recipes?.map(p=> <Tost chefData={chefData} p={p}></Tost>)
+        chefData?.all_recipes?.map(p=> <SingleCard chefData={chefData} p={p}></SingleCard>)
      
       }
     </div>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import { ToastContainer, toast } from 'react-toastify';
 
-const Tost = ({p,chefData}) => {
+const SingleCard = ({p,chefData}) => {
     console.log(chefData)
 
     const [isFavorites, setIsFavorites] = useState(false);
@@ -50,4 +50,4 @@ const Tost = ({p,chefData}) => {
     );
 };
 
-export default Tost;
+export default SingleCard;

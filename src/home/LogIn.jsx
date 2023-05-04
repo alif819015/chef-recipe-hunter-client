@@ -9,7 +9,7 @@ const LogIn = () => {
     const navigate = useNavigate('')
     const location = useLocation();
     console.log(location)
-    const from = location.state?.from?.pathname || '/'
+    const from = location?.state?.from?.pathname || '/'
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -55,6 +55,7 @@ const LogIn = () => {
     .then( result =>{
         const gitUser = result.user;
         console.log(gitUser);
+        navigate(from, {replace: true})
     })
     .catch(error=>{
         setError(error.message);
