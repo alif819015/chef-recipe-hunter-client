@@ -7,6 +7,7 @@ import img1 from "../../public/car1.jpg";
 import img2 from "../../public/car2.jpg";
 import img3 from "../../public/car3.webp";
 import img4 from "../../public/car4.jpg";
+import moment from 'moment';
 
 const Home = () => {
   const { user, loading } = useContext(AuthContext);
@@ -25,7 +26,8 @@ const Home = () => {
           backgroundImage: `url("https://wallpaperaccess.com/full/1400914.jpg")`,
         }}
       >
-        <div className="hero-overlay bg-opacity-20"></div>
+        <div className="hero-overlay bg-opacity-20">
+        </div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-4xl">
             <div className="carousel rounded-3xl h-96 w-full">
@@ -76,6 +78,9 @@ const Home = () => {
             </div>
             <hr className="mt-4" />
             <h1 className="mb-5 text-5xl font-bold font-serif mt-6 text-gray-50">
+              <div className="my-10 text-indigo-700">
+              <p>{moment().format('dddd, MMMM Do YYYY, h:mm:ss a')}</p>
+              </div>
                Chinese Chef
             </h1>
 
