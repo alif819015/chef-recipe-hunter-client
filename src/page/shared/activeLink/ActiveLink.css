@@ -1,0 +1,8 @@
+.active{
+    background-color: rebeccapurple;
+    padding: 4px 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: yellowgreen;
+    font-weight: 600;
+}

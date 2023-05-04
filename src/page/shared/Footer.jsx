@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import img1 from '../../../public/google.png';
+import img2 from '../../../public/facebook.png';
+import img3 from '../../../public/git.png';
 
 const Footer = () => {
   return (
@@ -10,9 +13,7 @@ const Footer = () => {
             <div className="w-full md:w-1/3 lg:w-1/4 mb-4 md:mb-0">
               <h3 className="text-lg font-bold mb-2">About Us</h3>
               <p className="text-sm">
-                We are a family-owned restaurant that specializes in serving
-                delicious and authentic cuisine. Our menu features a variety of
-                dishes made with fresh and locally sourced ingredients.
+              Authentic Chinese cuisine made with fresh, locally sourced ingredients at our family-owned restaurant. Warm and inviting atmosphere with exceptional service. Come dine with us or order takeout today!
               </p>
             </div>
             <div className="w-full md:w-1/3 lg:w-1/4 mb-4 md:mb-0">
@@ -38,6 +39,9 @@ const Footer = () => {
             <div className="w-full md:w-1/3 lg:w-1/4">
               <h3 className="text-lg font-bold mb-2">Follow Us</h3>
               <div className="flex items-center space-x-4">
+                <img style={{width: '28px'}} src={img1} alt="" />
+                <img style={{width: '28px'}} src={img2} alt="" />
+                <img style={{width: '38px'}} src={img3} alt="" />
                 <a
                   href="#"
                   className="text-gray-400 hover:text-gray-200 transition duration-300"

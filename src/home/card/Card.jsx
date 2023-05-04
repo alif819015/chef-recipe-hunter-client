@@ -7,12 +7,11 @@ const Card = () => {
   
 
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch("https://chef-recipe-hunter-server-alif819015.vercel.app/chef")
       .then((res) => res.json())
       .then((data) => setChefData(data));
   }, []);
 //   console.log(chefData);
-  
   return (
     <div className="flex flex-wrap">
   {chefData?.map((chef) => (
