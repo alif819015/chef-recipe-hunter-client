@@ -3,11 +3,13 @@ import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import useTitle from "../page/shared/useTitle";
 
 const LogIn = () => {
     const {login, google, gitHub} = useContext(AuthContext);
     const navigate = useNavigate('')
     const location = useLocation();
+    useTitle('login');
     console.log(location)
     const from = location?.state?.from?.pathname || '/'
 

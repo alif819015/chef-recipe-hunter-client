@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import useTitle from "../page/shared/useTitle";
 
 const Blogs = () => {
+  useTitle('blogs')
   return (
     <div className=" bg bg-orange-100 text-black">
       <div className="px-10 py-10">

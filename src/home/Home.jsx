@@ -8,8 +8,10 @@ import img2 from "../../public/car2.jpg";
 import img3 from "../../public/car3.webp";
 import img4 from "../../public/car4.jpg";
 import moment from 'moment';
+import useTitle from "../page/shared/useTitle";
 
 const Home = () => {
+  useTitle('home');
   const { user, loading } = useContext(AuthContext);
   if (loading) {
     return (

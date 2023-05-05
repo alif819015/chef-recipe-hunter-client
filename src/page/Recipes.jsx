@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { HandThumbUpIcon } from "@heroicons/react/24/solid";
 import Food from "./Food";
+import useTitle from "./shared/useTitle";
 
 const Recipes = () => {
+  useTitle('recipes');
   const [chefData, setChefData] = useState({});
   const { id } = useParams();
 
