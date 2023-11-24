@@ -22,16 +22,17 @@ const Card = () => {
                 offset={100}
                 onContentVisible={() => console.log("Content visible!")}
               >
-                 <img
-                className="rounded-md mt-2"
-                style={{ height: "300px", width: "95%" }}
-                src={chef?.picture}
-                alt="Lazy-loaded image"
-              />
+                <img
+                  className="rounded-md mt-2 h-[300px] w-[240px]"
+                  src={chef?.picture}
+                  alt="Lazy-loaded image"
+                />
               </LazyLoad>
             </figure>
             <div className="card-body">
-              <h2 className="card-title text-black">Name {chef?.name}</h2>
+              <h2 className="card-title text-black mx-auto">
+                Name {chef?.name}
+              </h2>
               <p>From: {chef.country}</p>
               <p>Experience: {chef.yearsOfExperience}</p>
               <p>Recipes: {chef.numbersOf_recipes}</p>
